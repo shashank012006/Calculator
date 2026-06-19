@@ -1,25 +1,35 @@
-function userInput(){
-    const a = Number(prompt("Enter a : "))
-    const b = Number(prompt("Enter b : "))
-    const operation = prompt("Enter a operation (add,sub,pro,div) : ")
 
-    calculator(a,b,operation)
+const num1 = Number(prompt("Enter a : "));
+const num2 = Number(prompt("Enter b : ")); 
+const operations = prompt("Enter operation");
+
+operate(num1,num2,operations)
+
+function add(num1,num2){
+    return num1 + num2
+}
+function sub(num1,num2){
+    return num1 - num2
+}
+function pro(num1,num2){
+    return num1 * num2
+}
+function divi(num1,num2){
+    return num1 / num2
 }
 
-function calculator(a,b,operation){
-    if (operation === "add"){
-        console.log(a+b)
+function operate(num1,num2,operations){
+    if (operations === "add"){
+        add(num1,num2)
     }
-    else if (operation === "sub"){
-        console.log(a-b)
+    else if (operations === "sub"){
+        sub(num1,num2)
     }
-    else if (operation === "pro"){
-        console.log(a*b)
+    else if (operations === "pro"){
+        pro(num1,num2)
     }
-    else if (operation === "div"){
-        console.log(a/b)
+    else if (operations === "divi"){
+        divi(num1,num2)
     }
 }
-
-userInput()
 
