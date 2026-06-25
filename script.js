@@ -1,7 +1,6 @@
-
-const num1 = Number(prompt("Enter a : "));
-const num2 = Number(prompt("Enter b : ")); 
-const operations = prompt("Enter operation");
+let num1;
+let num2;
+let op;
 
 operate(num1,num2,operations)
 
@@ -19,17 +18,24 @@ function divi(num1,num2){
 }
 
 function operate(num1,num2,operations){
-    if (operations === "add"){
-        add(num1,num2)
-    }
-    else if (operations === "sub"){
-        sub(num1,num2)
-    }
-    else if (operations === "pro"){
-        pro(num1,num2)
-    }
-    else if (operations === "divi"){
-        divi(num1,num2)
+    switch(operations){
+        case "+" :
+            add(num1,num2);
+            break;
+        
+        case "-" :
+            sub(num1,num2);
+            break;
+        
+        case "*" :
+            pro(num1,num2);
+            break;
+        
+        case "/" :
+            add(num1,num2);
+            break;
+        default : console.log("Invalid")
     }
 }
+
 
