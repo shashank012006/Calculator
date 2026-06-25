@@ -32,6 +32,9 @@ body {
     color: #ffffff;
     padding: 10px;
     margin-bottom: 20px;
+    white-space: nowrap;  
+    overflow: hidden; 
+    text-overflow: ellipsis;  
 }
 
 .buttons {
