@@ -36,9 +36,11 @@ let op = "";
 
 const display = document.querySelector("#display");
 const equal = document.querySelector(".btn.equal");
+const clear = document.querySelector(".btn.operator.clear");
+
 
 function updateDisplay() {
-    display.textContent = num1 + op + num2;
+    display.textContent = num1 + op + num2 || "0";
 }
 
 function equalCall(){
@@ -51,13 +53,22 @@ function equalCall(){
     op = ""
 }
 
+function clearCallback() {
+    num1 = "";
+    num2 = "";
+    op = "";
+  }
+
 equal.addEventListener("click",equalCall);
+clear.addEventListener("click", clearCallback);
+
 
 document.querySelectorAll(".btn").forEach((button) => {
     button.addEventListener("click", () => {
-        if (button.classList.contains("operator") || button.classList.contains("equal")) {
+        if (button.classList.contains("operator") || button.classList.contains("equal") || button.classList.contains("clear")) {
             return; 
         }
+        if (button.classList.contains("clear")) return;
         
         if(op == ""){
             num1 += button.textContent.trim();
@@ -70,6 +81,8 @@ document.querySelectorAll(".btn").forEach((button) => {
 
 document.querySelectorAll(".btn.operator").forEach((button) => {
     button.addEventListener("click", () => {
+        if (button.classList.contains("clear")) return;
+
         if (op != "") {
             equalCall();
         }
